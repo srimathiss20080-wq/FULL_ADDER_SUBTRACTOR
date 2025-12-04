@@ -1,5 +1,5 @@
 # FULL_ADDER_SUBTRACTOR
-
+**Date:04/12/2025**
 Implementation-of-Full-Adder-and-Full-subtractor-circuit
 
 **AIM:**
@@ -43,13 +43,54 @@ Borrow out = A'Bin + A'B + BBin
 Write the detailed procedure here
 
 **Program:**
+Full Adder
+-------------------------------------
+// Full Adder in Verilog
+```
+module full_adder (
+    input  wire a, b, cin,   // Inputs
+    output wire sum, carry   // Outputs
+);
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+    // Logic equations
+    assign sum   = a ^ b ^ cin;                  // XOR for sum
+    assign carry = (a & b) | (b & cin) | (a & cin); // Majority function for carry
+
+endmodule
+```
+Full Sub
+-------------------------------------
+// Full Subtractor in Verilog
+```
+module full_subtractor (
+    input  wire a, b, bin,       // Inputs
+    output wire diff, borrow     // Outputs
+);
+
+    // Logic equations
+    assign diff   = a ^ b ^ bin;                  // Difference
+    assign borrow = (~a & b) | (~(a ^ b) & bin);  // Borrow logic
+
+endmodule
+
+```
+
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by:Srimathi S
+RegisterNumber:25017525
 */
 
 **RTL Schematic**
 
 **Output Timing Waveform**
+***Full adder**
+<img width="1018" height="659" alt="Screenshot 2025-12-04 160310" src="https://github.com/user-attachments/assets/d1f32795-d4e4-4ef7-88b9-55d5f4b2dd09" />
+<img width="1321" height="368" alt="Screenshot 2025-12-04 160348" src="https://github.com/user-attachments/assets/66a1453b-14ec-4e4a-9927-400b37900f08" />
+
+
+**Full subractor**
+<img width="960" height="382" alt="Screenshot 2025-12-04 163510" src="https://github.com/user-attachments/assets/d714f64a-823a-435c-bccd-a38823c1000e" />
+
+<img width="1228" height="426" alt="Screenshot 2025-12-04 163523" src="https://github.com/user-attachments/assets/5f7115f0-5284-4183-90a2-4997a05b8682" />
 
 **Result:**
 
